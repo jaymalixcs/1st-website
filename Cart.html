@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="header">
+        <a href="index.html"><img src="images/logo2,1.png" height="180px" alt="logo"></a>
+        <ul id="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#products">Shop</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="Cart.html">Cart</a></li>
+        </ul>
+    </section>
+
+    <section id="cart-section" style="border: 1px solid #ccc; padding: 10px; margin-top: 20px;">
+        <h3>Shopping Cart</h3>
+        <div id="cart-content">Loading your cart...</div>
+    </section>
+    
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+        function displayCart() {
+            const cartContent = document.getElementById('cart-content');
+    
+            if (cart.length === 0) {
+                cartContent.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+            }
+    
+            cartContent.innerHTML = cart.map((item, index) => `
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding: 10px 0;">
+                    <div style="display: flex; align-items: center;">
+                        <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; margin-right: 10px;">
+                        <p>${item.name} - ₹${item.price} x ${item.quantity}</p>
+                    </div>
+                    <button onclick="removeFromCart(${index})" style="padding: 5px 10px; background-color: #ff4d4d; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                        Remove
+                    </button>
+                </div>
+            `).join('');
+    
+            const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            cartContent.innerHTML += `<h4>Total Price: ₹${totalPrice}</h4>`;
+        }
+    
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();
+        }
+    
+        displayCart();
+    </script>
+    
+</body>
+</html>
