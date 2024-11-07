@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-section {
+            background-color: #e1cfa7;
+            padding-bottom: 10px; 
+        }
+
+        .contact-form {
+            margin-bottom: 10px; 
+        }
+
+        #address {
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            margin: 10px 0; 
+            border-top: 2px solid #ddd;
+        }
+
+        #address h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .address-container p {
+            font-size: 18px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .address-container a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .address-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <section id="header">
@@ -21,40 +60,38 @@
             </ul>
         </div>
     </section>
-        <main>
-            <section class="contact-section">
-                <h1>Contact Us</h1>
-                <!-- <div class="container">
-                   
-                    <p>We'd love to hear from you! Whether you have questions about our fruits, need help with your order, or just want to say hello, the Exotica team is here to assist.</p>
-            
-                    <div class="contact-info">
-                        <div>📧 <strong>Email:</strong> <a href="mailto:support@exotica.com">support@exotica.com</a></div>
-                        <div>📞 <strong>Phone:</strong> +1 (555) 123-4567</div>
-                        <div>📍 <strong>Address:</strong> 123 Exotica Lane, Tropical Grove, CA 90210</div>
-                        <div>⏰ <strong>Customer Support Hours:</strong><br>
-                            Monday – Friday: 9 AM – 6 PM (PST)<br>
-                            Saturday: 10 AM – 4 PM (PST)
-                        </div>
-                    </div> -->
-                
-                <form class="contact-form">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-    
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-    
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-    
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-    
-                    <button type="submit">Submit</button>
-                </form>
-            </section>
-        </main>
-    
+    <main>
+        <section class="contact-section">
+            <h1>Contact Us</h1>
+
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="address">
+            <h2>Our Address</h2>
+            <div class="address-container">
+                <p><strong>Exotica Fruits</strong></p>
+                <p>123 Orchard Lane</p>
+                <p>Green Valley, Tropical City</p>
+                <p>Country: Fruitopia</p>
+                <p>Zip Code: 56789</p>
+                <p>Email: <a href="mailto:info@exoticafruits.com">info@exoticafruits.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
