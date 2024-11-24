@@ -22,19 +22,28 @@
     <section id="cart-section" style="border: 1px solid #ccc; padding: 10px; margin-top: 20px;">
         <h3>Shopping Cart</h3>
         <div id="cart-content">Loading your cart...</div>
+        <div id="checkout-section" style="margin-top: 20px; text-align: right; display: none;">
+            <button id="checkout-button" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;" onclick="proceedToCheckout()">
+                Proceed to Checkout
+            </button>
+        </div>
     </section>
-    
+
     <script>
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
+
         function displayCart() {
             const cartContent = document.getElementById('cart-content');
-    
+            const checkoutSection = document.getElementById('checkout-section');
+
             if (cart.length === 0) {
                 cartContent.innerHTML = '<p>Your cart is empty.</p>';
+                checkoutSection.style.display = 'none';  // Hide the checkout button
                 return;
             }
-    
+
+            checkoutSection.style.display = 'block';  // Show the checkout button when the cart has items
+
             cartContent.innerHTML = cart.map((item, index) => `
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding: 10px 0;">
                     <div style="display: flex; align-items: center;">
@@ -46,19 +55,33 @@
                     </button>
                 </div>
             `).join('');
-    
+
             const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
             cartContent.innerHTML += `<h4>Total Price: ₹${totalPrice}</h4>`;
         }
-    
+
         function removeFromCart(index) {
             cart.splice(index, 1);
             localStorage.setItem('cart', JSON.stringify(cart));
             displayCart();
         }
-    
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is already empty!');
+                return;
+            }
+            
+            localStorage.removeItem('cart');
+            cart = [];
+
+            
+            alert('Thank you for your purchase! Your cart has been cleared.');
+            displayCart();
+        }
+
+       
         displayCart();
     </script>
-    
 </body>
 </html>

@@ -197,7 +197,7 @@ body {
 }
 #products{
   display: grid;
-  grid-template-columns: repeat(5,378px);
+  grid-template-columns: repeat(4,390px);
   /* background-color: #F4B183; */
   /* background-color: #e1cfa7; */
   background-color: rgb(201, 255, 254);
@@ -240,7 +240,7 @@ body {
 }
 #deals{
   display: grid;
-  grid-template-columns: repeat(5,378px);
+  grid-template-columns: repeat(4,390px);
   background-color: #d9377b;
 }
 .ab{
